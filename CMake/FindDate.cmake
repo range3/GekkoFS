@@ -35,7 +35,7 @@ find_path(TZ_INCLUDE_DIR
 )
 
 find_library(TZ_LIBRARY
-    NAMES tz
+    NAMES date-tz
 )
 
 include(FindPackageHandleStandardArgs)
