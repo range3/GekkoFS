@@ -5,7 +5,7 @@
 spack:
   # add package specs to the `specs` list
   specs: [zstd, 'libfabric fabrics=rxm,sockets,tcp,verbs', mercury+bmi, mochi-margo,
-    date+tz, rocksdb@6.2.2+snappy]
+    date+tz, rocksdb@6.2.2+lz4+rtti+snappy+zlib+zstd]
   concretization: together
   view: true
   packages:
@@ -165,3 +165,5 @@ spack:
       - spec: rdma-core@52mlnx1
         prefix: /usr
       buildable: false
+  repos:
+  - ../../spack-repos/gekkofs

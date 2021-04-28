@@ -25,8 +25,8 @@
    "spec": "date+tz"
   },
   {
-   "hash": "ayhc44dlga7buyoh46gawjywzb22xt5x",
-   "spec": "rocksdb@6.2.2+snappy"
+   "hash": "rnxvmprg2ufhtusvrnk5n7z5p3qy3cta",
+   "spec": "rocksdb@6.2.2+lz4+rtti+snappy+zlib+zstd"
   }
  ],
  "concrete_specs": {
@@ -1808,7 +1808,7 @@
     "hash": "63updqu4v2wqzxt4a7v5xfxyn4z35zvi"
    }
   },
-  "ayhc44dlga7buyoh46gawjywzb22xt5x": {
+  "rnxvmprg2ufhtusvrnk5n7z5p3qy3cta": {
    "rocksdb": {
     "version": "6.2.2",
     "arch": {
@@ -1858,16 +1858,17 @@
      "name": "gcc",
      "version": "9.3.1"
     },
-    "namespace": "builtin",
+    "namespace": "gekkofs",
     "parameters": {
      "bz2": false,
      "lz4": true,
+     "rtti": true,
      "shared": true,
      "snappy": true,
      "static": true,
      "tbb": false,
      "zlib": true,
-     "zstd": false,
+     "zstd": true,
      "cflags": [],
      "cppflags": [],
      "cxxflags": [],
@@ -1903,9 +1904,16 @@
        "build",
        "link"
       ]
+     },
+     "zstd": {
+      "hash": "d3ywjkrjcgmwbzunrorf6nbht7gsxem4",
+      "type": [
+       "build",
+       "link"
+      ]
      }
     },
-    "hash": "bd3oczylucemrobpbbhhrffyoebouosq"
+    "hash": "oqsrgrln7ycglphllv3ulijlc3wgk7qb"
    }
   },
   "x4cu4l3q7lorvk2y6pwpgsoy7fdf5k2u": {
