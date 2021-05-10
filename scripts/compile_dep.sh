@@ -490,7 +490,7 @@ if check_dependency "rocksdb" "${DEP_CONFIG[@]}"; then
     CURR=${SOURCE}/rocksdb
     cd "${CURR}"
     make clean
-    USE_RTTI=1 make -j"${CORES}" static_lib
+    CFLAGS="-Wno-deprecated-copy -Wno-pessimizing-move" USE_RTTI=1 make -j"${CORES}" static_lib
     INSTALL_PATH="${INSTALL}" make install
 fi
 

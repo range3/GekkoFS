@@ -59,8 +59,8 @@ constexpr auto daemon_log_level = 4; // info
 namespace metadata {
 // which metadata should be considered apart from size and mode
 constexpr auto use_atime = false;
-constexpr auto use_ctime = false;
-constexpr auto use_mtime = false;
+constexpr auto use_ctime = true;
+constexpr auto use_mtime = true;
 constexpr auto use_link_cnt = false;
 constexpr auto use_blocks = false;
 /*

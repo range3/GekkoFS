@@ -4,11 +4,17 @@
 # configuration settings.
 spack:
   # add package specs to the `specs` list
-  specs: [zstd, 'libfabric fabrics=rxm,sockets,tcp,verbs', mercury+bmi, mochi-margo,
-    rocksdb@6.2.2+lz4+rtti+snappy+zlib+zstd, date+shared+tz tzdb=system]
+  # 'libfabric@1.8.1 fabrics=rxm,sockets,tcp,verbs'
+  specs: [zstd, mercury@2.0.1+ofi+bmi, mochi-margo@0.6.3, rocksdb@6.2.2+lz4+rtti+snappy+zlib+zstd,
+    date+shared+tz tzdb=system]
   concretization: together
   view: true
   packages:
+    libfabric:
+      externals:
+      - spec: libfabric@1.13.1
+        prefix: /usr
+        buildable: false
     autoconf:
       externals:
       - spec: autoconf@2.69
