@@ -37,6 +37,11 @@ find_path(TZ_INCLUDE_DIR
 find_library(TZ_LIBRARY
     NAMES tz
 )
+if(NOT Date_FOUND)
+    find_library(TZ_LIBRARY
+        NAMES date-tz
+    )
+endif()
 
 include(FindPackageHandleStandardArgs)
 find_package_handle_standard_args( Date 
