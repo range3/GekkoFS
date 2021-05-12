@@ -2,19 +2,38 @@
 #
 # It describes a set of packages to be installed, along with
 # configuration settings.
+  # - zstd
+  # - libfabric@1.12.0  fabrics=rxm,sockets,tcp,verbs
+  # - mercury@2020-03-17 ~boostsys+debug+ofi
+  # - mochi-margo@0.6.3
+  # - rocksdb@6.2.2+lz4+rtti+snappy+zlib+zstd
+  # - date+shared+tz tzdb=system
+  # specs:
+  # - zstd
+  # - libfabric@1.8.1  fabrics=rxm,sockets,tcp,verbs
+  # - mercury@2020-03-17 ~boostsys+debug+ofi
+  # - mochi-margo@0.6.3
+  # - rocksdb@6.2.2+lz4+rtti+snappy+zlib+zstd
+  # - date+shared+tz tzdb=system
+
 spack:
   # add package specs to the `specs` list
-  # 'libfabric@1.8.1 fabrics=rxm,sockets,tcp,verbs'
-  specs: [zstd, mercury@2.0.1+ofi+bmi, mochi-margo@0.6.3, rocksdb@6.2.2+lz4+rtti+snappy+zlib+zstd,
-    date+shared+tz tzdb=system]
+  # 
+  specs:
+  - zstd
+  - libfabric@1.12.1  fabrics=rxm,sockets,tcp,verbs
+  - mercury@2020-03-17 ~boostsys+debug+ofi
+  - mochi-margo@0.6.3
+  - rocksdb@6.2.2+lz4+rtti+snappy+zlib+zstd
+  - date+shared+tz tzdb=system
   concretization: together
   view: true
   packages:
-    libfabric:
+    rdma-core:
       externals:
-      - spec: libfabric@1.13.1
+      - spec: rdma-core@52mlnx1
         prefix: /usr
-        buildable: false
+      buildable: false
     autoconf:
       externals:
       - spec: autoconf@2.69
@@ -166,10 +185,8 @@ spack:
       externals:
       - spec: xz@5.2.2
         prefix: /usr
-    rdma-core:
-      externals:
-      - spec: rdma-core@52mlnx1
-        prefix: /usr
-      buildable: false
   repos:
   - ../../spack-repos/gekkofs
+  config:
+    build_stage:
+    - /home/$user/.spack/stage

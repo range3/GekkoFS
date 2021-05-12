@@ -9,11 +9,15 @@
    "spec": "zstd"
   },
   {
-   "hash": "5udkc3eckkcc7qjqfqy565ympasnezor",
-   "spec": "mercury@2.0.1+bmi+ofi"
+   "hash": "7mbb5uyikn4eb4sxs5lghyo3wtybknbu",
+   "spec": "libfabric@1.12.1 fabrics=rxm,sockets,tcp,verbs"
   },
   {
-   "hash": "ufgtnlxrklcaaymtp3dja4topgzbnmlm",
+   "hash": "rpis5t2y4dh6hxsjkyseb7uzrteg5nuf",
+   "spec": "mercury@2020-03-17~boostsys+debug+ofi"
+  },
+  {
+   "hash": "mgmykocks2pofayhkbruoei2a35qbt3y",
    "spec": "mochi-margo@0.6.3"
   },
   {
@@ -184,9 +188,9 @@
     "hash": "donkss5d5yywrus4ed22qn43wxe4v3k7"
    }
   },
-  "5udkc3eckkcc7qjqfqy565ympasnezor": {
-   "mercury": {
-    "version": "2.0.1",
+  "7mbb5uyikn4eb4sxs5lghyo3wtybknbu": {
+   "libfabric": {
+    "version": "1.12.1",
     "arch": {
      "platform": "linux",
      "platform_os": "centos7",
@@ -236,12 +240,159 @@
     },
     "namespace": "builtin",
     "parameters": {
-     "bmi": true,
-     "boostsys": true,
+     "fabrics": [
+      "rxm",
+      "sockets",
+      "tcp",
+      "verbs"
+     ],
+     "kdreg": false,
+     "cflags": [],
+     "cppflags": [],
+     "cxxflags": [],
+     "fflags": [],
+     "ldflags": [],
+     "ldlibs": []
+    },
+    "dependencies": {
+     "rdma-core": {
+      "hash": "vogpj7vetkgjkxnfyv7in3q2euimll6q",
+      "type": [
+       "build",
+       "link"
+      ]
+     }
+    },
+    "hash": "7mbb5uyikn4eb4sxs5lghyo3wtybknbu"
+   }
+  },
+  "vogpj7vetkgjkxnfyv7in3q2euimll6q": {
+   "rdma-core": {
+    "version": "52mlnx1",
+    "arch": {
+     "platform": "linux",
+     "platform_os": "centos7",
+     "target": {
+      "name": "cascadelake",
+      "vendor": "GenuineIntel",
+      "features": [
+       "adx",
+       "aes",
+       "avx",
+       "avx2",
+       "avx512_vnni",
+       "avx512bw",
+       "avx512cd",
+       "avx512dq",
+       "avx512f",
+       "avx512vl",
+       "bmi1",
+       "bmi2",
+       "clflushopt",
+       "clwb",
+       "f16c",
+       "fma",
+       "mmx",
+       "movbe",
+       "pclmulqdq",
+       "popcnt",
+       "rdrand",
+       "rdseed",
+       "sse",
+       "sse2",
+       "sse4_1",
+       "sse4_2",
+       "ssse3",
+       "xsavec",
+       "xsaveopt"
+      ],
+      "generation": 0,
+      "parents": [
+       "skylake_avx512"
+      ]
+     }
+    },
+    "compiler": {
+     "name": "gcc",
+     "version": "9.3.1"
+    },
+    "namespace": "builtin",
+    "parameters": {
+     "build_type": "RelWithDebInfo",
+     "ipo": false,
+     "cflags": [],
+     "cppflags": [],
+     "cxxflags": [],
+     "fflags": [],
+     "ldflags": [],
+     "ldlibs": []
+    },
+    "external": {
+     "path": "/usr",
+     "module": null,
+     "extra_attributes": {}
+    },
+    "hash": "vogpj7vetkgjkxnfyv7in3q2euimll6q"
+   }
+  },
+  "rpis5t2y4dh6hxsjkyseb7uzrteg5nuf": {
+   "mercury": {
+    "version": "2020-03-17",
+    "arch": {
+     "platform": "linux",
+     "platform_os": "centos7",
+     "target": {
+      "name": "cascadelake",
+      "vendor": "GenuineIntel",
+      "features": [
+       "adx",
+       "aes",
+       "avx",
+       "avx2",
+       "avx512_vnni",
+       "avx512bw",
+       "avx512cd",
+       "avx512dq",
+       "avx512f",
+       "avx512vl",
+       "bmi1",
+       "bmi2",
+       "clflushopt",
+       "clwb",
+       "f16c",
+       "fma",
+       "mmx",
+       "movbe",
+       "pclmulqdq",
+       "popcnt",
+       "rdrand",
+       "rdseed",
+       "sse",
+       "sse2",
+       "sse4_1",
+       "sse4_2",
+       "ssse3",
+       "xsavec",
+       "xsaveopt"
+      ],
+      "generation": 0,
+      "parents": [
+       "skylake_avx512"
+      ]
+     }
+    },
+    "compiler": {
+     "name": "gcc",
+     "version": "9.3.1"
+    },
+    "namespace": "gekkofs",
+    "parameters": {
+     "bmi": false,
+     "boostsys": false,
      "build_type": "RelWithDebInfo",
      "cci": false,
      "checksum": true,
-     "debug": false,
+     "debug": true,
      "ipo": false,
      "mpi": false,
      "ofi": true,
@@ -256,20 +407,6 @@
      "ldlibs": []
     },
     "dependencies": {
-     "bmi": {
-      "hash": "cgc42jv2pqnj33fdg6bzilrpi7zdoalo",
-      "type": [
-       "build",
-       "link"
-      ]
-     },
-     "boost": {
-      "hash": "vowo2phsdhgc4byra5f56uwismxcw2vh",
-      "type": [
-       "build",
-       "link"
-      ]
-     },
      "cmake": {
       "hash": "donkss5d5yywrus4ed22qn43wxe4v3k7",
       "type": [
@@ -277,19 +414,19 @@
       ]
      },
      "libfabric": {
-      "hash": "fqkqiq3b7p3o26b4rlxfgt6yfqchqrak",
+      "hash": "7mbb5uyikn4eb4sxs5lghyo3wtybknbu",
       "type": [
        "build",
        "link"
       ]
      }
     },
-    "hash": "yg6572fvm7xrbykymsborbbtqmgzwmqt"
+    "hash": "e3e4eylobcrakejwiutct3g7wf652sve"
    }
   },
-  "cgc42jv2pqnj33fdg6bzilrpi7zdoalo": {
-   "bmi": {
-    "version": "main",
+  "mgmykocks2pofayhkbruoei2a35qbt3y": {
+   "mochi-margo": {
+    "version": "0.6.3",
     "arch": {
      "platform": "linux",
      "platform_os": "centos7",
@@ -347,6 +484,13 @@
      "ldlibs": []
     },
     "dependencies": {
+     "argobots": {
+      "hash": "liecmvbjjhiutvzpirn56o37gvh2ac3x",
+      "type": [
+       "build",
+       "link"
+      ]
+     },
      "autoconf": {
       "hash": "75himeresjcgoqmaa7for47uu3iu6g6h",
       "type": [
@@ -358,9 +502,99 @@
       "type": [
        "build"
       ]
+     },
+     "libtool": {
+      "hash": "fh5ukr26jz4pddltl6z24z3lslhgydba",
+      "type": [
+       "build"
+      ]
+     },
+     "m4": {
+      "hash": "mw4noyhttgezm2e3z3jwuiqwok62vsws",
+      "type": [
+       "build"
+      ]
+     },
+     "mercury": {
+      "hash": "rpis5t2y4dh6hxsjkyseb7uzrteg5nuf",
+      "type": [
+       "build",
+       "link",
+       "run"
+      ]
+     },
+     "pkg-config": {
+      "hash": "g6pek5v5zxdob4dra3rcnu6ybh4pmrhp",
+      "type": [
+       "build"
+      ]
      }
     },
-    "hash": "csmaye7blyeubx6cw7d36kh4wysw24vg"
+    "hash": "nrp66tjutyrpad7upt7l7j2qckshm6sq"
+   }
+  },
+  "liecmvbjjhiutvzpirn56o37gvh2ac3x": {
+   "argobots": {
+    "version": "1.1",
+    "arch": {
+     "platform": "linux",
+     "platform_os": "centos7",
+     "target": {
+      "name": "cascadelake",
+      "vendor": "GenuineIntel",
+      "features": [
+       "adx",
+       "aes",
+       "avx",
+       "avx2",
+       "avx512_vnni",
+       "avx512bw",
+       "avx512cd",
+       "avx512dq",
+       "avx512f",
+       "avx512vl",
+       "bmi1",
+       "bmi2",
+       "clflushopt",
+       "clwb",
+       "f16c",
+       "fma",
+       "mmx",
+       "movbe",
+       "pclmulqdq",
+       "popcnt",
+       "rdrand",
+       "rdseed",
+       "sse",
+       "sse2",
+       "sse4_1",
+       "sse4_2",
+       "ssse3",
+       "xsavec",
+       "xsaveopt"
+      ],
+      "generation": 0,
+      "parents": [
+       "skylake_avx512"
+      ]
+     }
+    },
+    "compiler": {
+     "name": "gcc",
+     "version": "9.3.1"
+    },
+    "namespace": "builtin",
+    "parameters": {
+     "debug": false,
+     "valgrind": false,
+     "cflags": [],
+     "cppflags": [],
+     "cxxflags": [],
+     "fflags": [],
+     "ldflags": [],
+     "ldlibs": []
+    },
+    "hash": "liecmvbjjhiutvzpirn56o37gvh2ac3x"
    }
   },
   "75himeresjcgoqmaa7for47uu3iu6g6h": {
@@ -495,507 +729,6 @@
      "extra_attributes": {}
     },
     "hash": "4k73qypezkvfrls2rar2arljnfn2uhnw"
-   }
-  },
-  "vowo2phsdhgc4byra5f56uwismxcw2vh": {
-   "boost": {
-    "version": "1.75.0",
-    "arch": {
-     "platform": "linux",
-     "platform_os": "centos7",
-     "target": {
-      "name": "cascadelake",
-      "vendor": "GenuineIntel",
-      "features": [
-       "adx",
-       "aes",
-       "avx",
-       "avx2",
-       "avx512_vnni",
-       "avx512bw",
-       "avx512cd",
-       "avx512dq",
-       "avx512f",
-       "avx512vl",
-       "bmi1",
-       "bmi2",
-       "clflushopt",
-       "clwb",
-       "f16c",
-       "fma",
-       "mmx",
-       "movbe",
-       "pclmulqdq",
-       "popcnt",
-       "rdrand",
-       "rdseed",
-       "sse",
-       "sse2",
-       "sse4_1",
-       "sse4_2",
-       "ssse3",
-       "xsavec",
-       "xsaveopt"
-      ],
-      "generation": 0,
-      "parents": [
-       "skylake_avx512"
-      ]
-     }
-    },
-    "compiler": {
-     "name": "gcc",
-     "version": "9.3.1"
-    },
-    "namespace": "builtin",
-    "parameters": {
-     "atomic": true,
-     "chrono": true,
-     "clanglibcpp": false,
-     "container": false,
-     "context": false,
-     "coroutine": false,
-     "cxxstd": "98",
-     "date_time": true,
-     "debug": false,
-     "exception": true,
-     "fiber": false,
-     "filesystem": true,
-     "graph": true,
-     "icu": false,
-     "iostreams": true,
-     "locale": true,
-     "log": true,
-     "math": true,
-     "mpi": false,
-     "multithreaded": true,
-     "numpy": false,
-     "patches": [
-      "f2409bfa0e69e44817a5f8799e25c2e9e5ee50876a5aaacefd32fa647b80472f"
-     ],
-     "pic": false,
-     "program_options": true,
-     "python": false,
-     "random": true,
-     "regex": true,
-     "serialization": true,
-     "shared": true,
-     "signals": true,
-     "singlethreaded": false,
-     "system": true,
-     "taggedlayout": false,
-     "test": true,
-     "thread": true,
-     "timer": true,
-     "versionedlayout": false,
-     "visibility": "hidden",
-     "wave": true,
-     "cflags": [],
-     "cppflags": [],
-     "cxxflags": [],
-     "fflags": [],
-     "ldflags": [],
-     "ldlibs": []
-    },
-    "patches": [
-     "f2409bfa0e69e44817a5f8799e25c2e9e5ee50876a5aaacefd32fa647b80472f"
-    ],
-    "dependencies": {
-     "bzip2": {
-      "hash": "i6jqbtjz5hga4adh4na3777frnmhvptj",
-      "type": [
-       "build",
-       "link"
-      ]
-     },
-     "zlib": {
-      "hash": "yviwwjyveaawsofd764tzbobj5i4u4bt",
-      "type": [
-       "build",
-       "link"
-      ]
-     }
-    },
-    "hash": "vowo2phsdhgc4byra5f56uwismxcw2vh"
-   }
-  },
-  "i6jqbtjz5hga4adh4na3777frnmhvptj": {
-   "bzip2": {
-    "version": "1.0.6",
-    "arch": {
-     "platform": "linux",
-     "platform_os": "centos7",
-     "target": {
-      "name": "cascadelake",
-      "vendor": "GenuineIntel",
-      "features": [
-       "adx",
-       "aes",
-       "avx",
-       "avx2",
-       "avx512_vnni",
-       "avx512bw",
-       "avx512cd",
-       "avx512dq",
-       "avx512f",
-       "avx512vl",
-       "bmi1",
-       "bmi2",
-       "clflushopt",
-       "clwb",
-       "f16c",
-       "fma",
-       "mmx",
-       "movbe",
-       "pclmulqdq",
-       "popcnt",
-       "rdrand",
-       "rdseed",
-       "sse",
-       "sse2",
-       "sse4_1",
-       "sse4_2",
-       "ssse3",
-       "xsavec",
-       "xsaveopt"
-      ],
-      "generation": 0,
-      "parents": [
-       "skylake_avx512"
-      ]
-     }
-    },
-    "compiler": {
-     "name": "gcc",
-     "version": "9.3.1"
-    },
-    "namespace": "builtin",
-    "parameters": {
-     "shared": true,
-     "cflags": [],
-     "cppflags": [],
-     "cxxflags": [],
-     "fflags": [],
-     "ldflags": [],
-     "ldlibs": []
-    },
-    "external": {
-     "path": "/usr",
-     "module": null,
-     "extra_attributes": {}
-    },
-    "hash": "i6jqbtjz5hga4adh4na3777frnmhvptj"
-   }
-  },
-  "yviwwjyveaawsofd764tzbobj5i4u4bt": {
-   "zlib": {
-    "version": "1.2.11",
-    "arch": {
-     "platform": "linux",
-     "platform_os": "centos7",
-     "target": {
-      "name": "cascadelake",
-      "vendor": "GenuineIntel",
-      "features": [
-       "adx",
-       "aes",
-       "avx",
-       "avx2",
-       "avx512_vnni",
-       "avx512bw",
-       "avx512cd",
-       "avx512dq",
-       "avx512f",
-       "avx512vl",
-       "bmi1",
-       "bmi2",
-       "clflushopt",
-       "clwb",
-       "f16c",
-       "fma",
-       "mmx",
-       "movbe",
-       "pclmulqdq",
-       "popcnt",
-       "rdrand",
-       "rdseed",
-       "sse",
-       "sse2",
-       "sse4_1",
-       "sse4_2",
-       "ssse3",
-       "xsavec",
-       "xsaveopt"
-      ],
-      "generation": 0,
-      "parents": [
-       "skylake_avx512"
-      ]
-     }
-    },
-    "compiler": {
-     "name": "gcc",
-     "version": "9.3.1"
-    },
-    "namespace": "builtin",
-    "parameters": {
-     "optimize": true,
-     "pic": true,
-     "shared": true,
-     "cflags": [],
-     "cppflags": [],
-     "cxxflags": [],
-     "fflags": [],
-     "ldflags": [],
-     "ldlibs": []
-    },
-    "hash": "yviwwjyveaawsofd764tzbobj5i4u4bt"
-   }
-  },
-  "fqkqiq3b7p3o26b4rlxfgt6yfqchqrak": {
-   "libfabric": {
-    "version": "1.13.1",
-    "arch": {
-     "platform": "linux",
-     "platform_os": "centos7",
-     "target": {
-      "name": "cascadelake",
-      "vendor": "GenuineIntel",
-      "features": [
-       "adx",
-       "aes",
-       "avx",
-       "avx2",
-       "avx512_vnni",
-       "avx512bw",
-       "avx512cd",
-       "avx512dq",
-       "avx512f",
-       "avx512vl",
-       "bmi1",
-       "bmi2",
-       "clflushopt",
-       "clwb",
-       "f16c",
-       "fma",
-       "mmx",
-       "movbe",
-       "pclmulqdq",
-       "popcnt",
-       "rdrand",
-       "rdseed",
-       "sse",
-       "sse2",
-       "sse4_1",
-       "sse4_2",
-       "ssse3",
-       "xsavec",
-       "xsaveopt"
-      ],
-      "generation": 0,
-      "parents": [
-       "skylake_avx512"
-      ]
-     }
-    },
-    "compiler": {
-     "name": "gcc",
-     "version": "9.3.1"
-    },
-    "namespace": "builtin",
-    "parameters": {
-     "fabrics": [
-      "sockets",
-      "tcp",
-      "udp"
-     ],
-     "kdreg": false,
-     "cflags": [],
-     "cppflags": [],
-     "cxxflags": [],
-     "fflags": [],
-     "ldflags": [],
-     "ldlibs": []
-    },
-    "external": {
-     "path": "/usr",
-     "module": null,
-     "extra_attributes": {}
-    },
-    "hash": "fqkqiq3b7p3o26b4rlxfgt6yfqchqrak"
-   }
-  },
-  "ufgtnlxrklcaaymtp3dja4topgzbnmlm": {
-   "mochi-margo": {
-    "version": "0.6.3",
-    "arch": {
-     "platform": "linux",
-     "platform_os": "centos7",
-     "target": {
-      "name": "cascadelake",
-      "vendor": "GenuineIntel",
-      "features": [
-       "adx",
-       "aes",
-       "avx",
-       "avx2",
-       "avx512_vnni",
-       "avx512bw",
-       "avx512cd",
-       "avx512dq",
-       "avx512f",
-       "avx512vl",
-       "bmi1",
-       "bmi2",
-       "clflushopt",
-       "clwb",
-       "f16c",
-       "fma",
-       "mmx",
-       "movbe",
-       "pclmulqdq",
-       "popcnt",
-       "rdrand",
-       "rdseed",
-       "sse",
-       "sse2",
-       "sse4_1",
-       "sse4_2",
-       "ssse3",
-       "xsavec",
-       "xsaveopt"
-      ],
-      "generation": 0,
-      "parents": [
-       "skylake_avx512"
-      ]
-     }
-    },
-    "compiler": {
-     "name": "gcc",
-     "version": "9.3.1"
-    },
-    "namespace": "builtin",
-    "parameters": {
-     "cflags": [],
-     "cppflags": [],
-     "cxxflags": [],
-     "fflags": [],
-     "ldflags": [],
-     "ldlibs": []
-    },
-    "dependencies": {
-     "argobots": {
-      "hash": "liecmvbjjhiutvzpirn56o37gvh2ac3x",
-      "type": [
-       "build",
-       "link"
-      ]
-     },
-     "autoconf": {
-      "hash": "75himeresjcgoqmaa7for47uu3iu6g6h",
-      "type": [
-       "build"
-      ]
-     },
-     "automake": {
-      "hash": "4k73qypezkvfrls2rar2arljnfn2uhnw",
-      "type": [
-       "build"
-      ]
-     },
-     "libtool": {
-      "hash": "fh5ukr26jz4pddltl6z24z3lslhgydba",
-      "type": [
-       "build"
-      ]
-     },
-     "m4": {
-      "hash": "mw4noyhttgezm2e3z3jwuiqwok62vsws",
-      "type": [
-       "build"
-      ]
-     },
-     "mercury": {
-      "hash": "5udkc3eckkcc7qjqfqy565ympasnezor",
-      "type": [
-       "build",
-       "link",
-       "run"
-      ]
-     },
-     "pkg-config": {
-      "hash": "g6pek5v5zxdob4dra3rcnu6ybh4pmrhp",
-      "type": [
-       "build"
-      ]
-     }
-    },
-    "hash": "etypegosnzm5brclqcy7p7tmoeb4wfsn"
-   }
-  },
-  "liecmvbjjhiutvzpirn56o37gvh2ac3x": {
-   "argobots": {
-    "version": "1.1",
-    "arch": {
-     "platform": "linux",
-     "platform_os": "centos7",
-     "target": {
-      "name": "cascadelake",
-      "vendor": "GenuineIntel",
-      "features": [
-       "adx",
-       "aes",
-       "avx",
-       "avx2",
-       "avx512_vnni",
-       "avx512bw",
-       "avx512cd",
-       "avx512dq",
-       "avx512f",
-       "avx512vl",
-       "bmi1",
-       "bmi2",
-       "clflushopt",
-       "clwb",
-       "f16c",
-       "fma",
-       "mmx",
-       "movbe",
-       "pclmulqdq",
-       "popcnt",
-       "rdrand",
-       "rdseed",
-       "sse",
-       "sse2",
-       "sse4_1",
-       "sse4_2",
-       "ssse3",
-       "xsavec",
-       "xsaveopt"
-      ],
-      "generation": 0,
-      "parents": [
-       "skylake_avx512"
-      ]
-     }
-    },
-    "compiler": {
-     "name": "gcc",
-     "version": "9.3.1"
-    },
-    "namespace": "builtin",
-    "parameters": {
-     "debug": false,
-     "valgrind": false,
-     "cflags": [],
-     "cppflags": [],
-     "cxxflags": [],
-     "fflags": [],
-     "ldflags": [],
-     "ldlibs": []
-    },
-    "hash": "liecmvbjjhiutvzpirn56o37gvh2ac3x"
    }
   },
   "fh5ukr26jz4pddltl6z24z3lslhgydba": {
@@ -1527,6 +1260,71 @@
      }
     },
     "hash": "zgaih74mxqwdnz463bjws4ncl272u7ho"
+   }
+  },
+  "yviwwjyveaawsofd764tzbobj5i4u4bt": {
+   "zlib": {
+    "version": "1.2.11",
+    "arch": {
+     "platform": "linux",
+     "platform_os": "centos7",
+     "target": {
+      "name": "cascadelake",
+      "vendor": "GenuineIntel",
+      "features": [
+       "adx",
+       "aes",
+       "avx",
+       "avx2",
+       "avx512_vnni",
+       "avx512bw",
+       "avx512cd",
+       "avx512dq",
+       "avx512f",
+       "avx512vl",
+       "bmi1",
+       "bmi2",
+       "clflushopt",
+       "clwb",
+       "f16c",
+       "fma",
+       "mmx",
+       "movbe",
+       "pclmulqdq",
+       "popcnt",
+       "rdrand",
+       "rdseed",
+       "sse",
+       "sse2",
+       "sse4_1",
+       "sse4_2",
+       "ssse3",
+       "xsavec",
+       "xsaveopt"
+      ],
+      "generation": 0,
+      "parents": [
+       "skylake_avx512"
+      ]
+     }
+    },
+    "compiler": {
+     "name": "gcc",
+     "version": "9.3.1"
+    },
+    "namespace": "builtin",
+    "parameters": {
+     "optimize": true,
+     "pic": true,
+     "shared": true,
+     "cflags": [],
+     "cppflags": [],
+     "cxxflags": [],
+     "fflags": [],
+     "ldflags": [],
+     "ldlibs": []
+    },
+    "hash": "yviwwjyveaawsofd764tzbobj5i4u4bt"
    }
   },
   "gfz3ma2odrqrthnmunism5av7o5uij25": {
