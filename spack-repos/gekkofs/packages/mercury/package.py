@@ -90,6 +90,10 @@ class Mercury(CMakePackage):
                 '-DMERCURY_ENABLE_VERBOSE_ERROR=%s' % variant_bool('+debug'),
             ])
 
+        if '@master' in spec:
+            cmake_args.extend([
+                '-DMERCURY_ENABLE_DEBUG:BOOL=%s' % variant_bool('+debug'),
+            ])
 
         if '@2.0.0:' in spec:
             cmake_args.extend([
