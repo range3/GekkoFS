@@ -22,7 +22,7 @@ spack:
   specs:
   - zstd
   - libfabric@1.12.1  fabrics=rxm,sockets,tcp,verbs
-  - mercury@2020-03-17 ~boostsys+debug+ofi
+  - mercury@2020-03-17 ~boostsys+ofi
   - mochi-margo@0.6.3
   - rocksdb@6.2.2+lz4+rtti+snappy+zlib+zstd
   - date+shared+tz tzdb=system

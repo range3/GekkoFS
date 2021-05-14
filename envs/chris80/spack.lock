@@ -13,11 +13,11 @@
    "spec": "libfabric@1.12.1 fabrics=rxm,sockets,tcp,verbs"
   },
   {
-   "hash": "rpis5t2y4dh6hxsjkyseb7uzrteg5nuf",
-   "spec": "mercury@2020-03-17~boostsys+debug+ofi"
+   "hash": "w6k4d6gduzf6ir3u7d33gtufm4kqzclh",
+   "spec": "mercury@2020-03-17~boostsys+ofi"
   },
   {
-   "hash": "mgmykocks2pofayhkbruoei2a35qbt3y",
+   "hash": "v3tpusnbepuzlzn73op37dyka4lnn2jc",
    "spec": "mochi-margo@0.6.3"
   },
   {
@@ -335,7 +335,7 @@
     "hash": "vogpj7vetkgjkxnfyv7in3q2euimll6q"
    }
   },
-  "rpis5t2y4dh6hxsjkyseb7uzrteg5nuf": {
+  "w6k4d6gduzf6ir3u7d33gtufm4kqzclh": {
    "mercury": {
     "version": "2020-03-17",
     "arch": {
@@ -392,7 +392,7 @@
      "build_type": "RelWithDebInfo",
      "cci": false,
      "checksum": true,
-     "debug": true,
+     "debug": false,
      "ipo": false,
      "mpi": false,
      "ofi": true,
@@ -421,10 +421,10 @@
       ]
      }
     },
-    "hash": "e3e4eylobcrakejwiutct3g7wf652sve"
+    "hash": "n3jvks6bkbrowtxw5wlwd5fcrv3e2oot"
    }
   },
-  "mgmykocks2pofayhkbruoei2a35qbt3y": {
+  "v3tpusnbepuzlzn73op37dyka4lnn2jc": {
    "mochi-margo": {
     "version": "0.6.3",
     "arch": {
@@ -516,7 +516,7 @@
       ]
      },
      "mercury": {
-      "hash": "rpis5t2y4dh6hxsjkyseb7uzrteg5nuf",
+      "hash": "w6k4d6gduzf6ir3u7d33gtufm4kqzclh",
       "type": [
        "build",
        "link",
@@ -530,7 +530,7 @@
       ]
      }
     },
-    "hash": "nrp66tjutyrpad7upt7l7j2qckshm6sq"
+    "hash": "aktr4cymhx5jdkqduqhbzhcoweqepb3f"
    }
   },
   "liecmvbjjhiutvzpirn56o37gvh2ac3x": {
