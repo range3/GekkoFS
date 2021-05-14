@@ -285,6 +285,7 @@ PreloadContext::interception_enabled() const {
 
 int
 PreloadContext::register_internal_fd(int fd) {
+    return fd;
 
     assert(fd >= 0);
 
@@ -354,6 +355,7 @@ PreloadContext::register_internal_fd(int fd) {
 
 void
 PreloadContext::unregister_internal_fd(int fd) {
+    return;
 
     LOG(DEBUG, "unregistering internal fd {}", fd);
 
