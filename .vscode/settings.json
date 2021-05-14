@@ -1,0 +1,11 @@
+{
+  "cmake.configureArgs": [
+    "-DCMAKE_PREFIX_PATH=${userHome}/.local:${workspaceFolder}/envs/chris80/.spack-env/view",
+    "-DCMAKE_INSTALL_PREFIX=${userHome}/.local",
+    "-DCMAKE_BUILD_WITH_INSTALL_RPATH=1",
+    "-DCMAKE_INSTALL_RPATH=${workspaceFolder}/envs/chris80/.spack-env/view/lib:${workspaceFolder}/envs/chris80/.spack-env/view/lib64",
+    "-DCMAKE_RUNTIME_OUTPUT_DIRECTORY=${workspaceFolder}/build-${buildType}/bin",
+    "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=${workspaceFolder}/build-${buildType}/lib",
+    "-DCMAKE_ARCHIVE_OUTPUT_DIRECTORY=${workspaceFolder}/build-${buildType}/lib"
+  ]
+}

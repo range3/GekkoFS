@@ -40,6 +40,7 @@ add_executable(gkfs_test ${SOURCE_FILES})
 
 set(SOURCE_FILES_IO main_IO_testing.cpp)
 add_executable(gkfs_test_IO ${SOURCE_FILES_IO})
+add_executable(gkfs_test_IO_min IO_test.cpp)
 
 set(SOURCE_FILES_TEMP main_temp.cpp)
 add_executable(gkfs_test_temp ${SOURCE_FILES_TEMP})

@@ -112,7 +112,7 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/CMake" ${CMAKE_MODULE_PATH})
 ################################################################################
 include(gkfs-code-coverage)
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS 0)
+set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
 
 # Rocksdb dependencies
 find_package(LZ4 REQUIRED)
@@ -280,3 +280,6 @@ if (GKFS_BUILD_TESTS)
 else()
     unset(GKFS_TESTS_INTERFACE CACHE)
 endif()
+
+# test
+add_subdirectory(test)
