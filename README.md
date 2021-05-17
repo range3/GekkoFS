@@ -34,17 +34,27 @@ cmake3 version 3.17.5
 ```bash
 $ git clone git@github.com:range3/GekkoFS.git
 $ cd GekkoFS
-$ git co -b gitlab/v0.8.0/devel origin/gitlab/v0.8.0/devel
+$ git co -b gitlab/master-eval origin/gitlab/master-eval
 $ git submodule update --init --recursive
 # install deps using spack
 $ spack env activate -d envs/chris80
 $ spack install
-# install a dep that spack doesn't hava a package.
+# install a dep that spack doesn't hava a package for.
 $ ./scripts/dl_dep.sh -d syscall_intercept $HOME/.local/src
 $ ./scripts/compile_dep.sh -d syscall_intercept $HOME/.local/src $HOME/.local
 # build GekkoFS
 $ mkdir build
 $ cd build
-$ cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=$HOME/.local
+$ cmake .. \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_PREFIX_PATH=$HOME/.local \
+  -DCMAKE_INSTALL_PREFIX=$HOME/.local \
+  # optional: for convenience
+  -DCMAKE_BUILD_WITH_INSTALL_RPATH=1 \
+  -DCMAKE_INSTALL_RPATH=/path/to/gekkofs/envs/chris80/.spack-env/view/lib:/path/to/gekkofs/envs/chris80/.spack-env/view/lib64 \
+  -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=$(pwd)/bin \
+  -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=$(pwd)/lib \
+  -DCMAKE_ARCHIVE_OUTPUT_DIRECTORY=$(pwd)/lib 
 $ cmake --build . -j
+$ cmake --build . --target install
 ```
