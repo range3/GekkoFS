@@ -47,6 +47,8 @@ extern "C" {
 
 namespace {
 
+static auto constexpr MIN_INTERNAL_FD = MAX_OPEN_FDS - MAX_INTERNAL_FDS;
+
 thread_local bool reentrance_guard_flag;
 thread_local gkfs::syscall::info saved_syscall_info;
 
@@ -97,7 +99,9 @@ hook_internal(long syscall_number, long arg0, long arg1, long arg2, long arg3,
                     syscall_number, reinterpret_cast<char*>(arg0),
                     static_cast<int>(arg1), static_cast<mode_t>(arg2));
 
-            if(*result >= 0) {
+            if(*result >= 0 &&
+                strncmp(reinterpret_cast<char*>(arg0), "/dev/infiniband/rdma_cm", 23))
+            {
                 *result = CTX->register_internal_fd(*result);
             }
 
@@ -381,7 +385,7 @@ hook_internal(long syscall_number, long arg0, long arg1, long arg2, long arg3,
             *result = syscall_no_intercept(syscall_number,
                                            static_cast<int>(arg0));
 
-            if(*result == 0) {
+            if(*result == 0 && arg0 >= MIN_INTERNAL_FD) {
                 CTX->unregister_internal_fd(arg0);
             }
             break;
