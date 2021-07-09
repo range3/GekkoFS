@@ -1,0 +1,230 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+  # - zstd
+  # - libfabric@1.12.0  fabrics=rxm,sockets,tcp,verbs
+  # - mercury@2020-03-17 ~boostsys+debug+ofi
+  # - mochi-margo@0.6.3
+  # - rocksdb@6.2.2+lz4+rtti+snappy+zlib+zstd
+  # - date+shared+tz tzdb=system
+  # specs:
+  # - zstd
+  # - libfabric@1.8.1  fabrics=rxm,sockets,tcp,verbs
+  # - mercury@2020-03-17 ~boostsys+debug+ofi
+  # - mochi-margo@0.6.3
+  # - rocksdb@6.2.2+lz4+rtti+snappy+zlib+zstd
+  # - date+shared+tz tzdb=system
+
+spack:
+  # add package specs to the `specs` list
+  # 
+  specs:
+  - cmake
+  - git@2.31.1
+  - zstd
+  - libuuid
+  - syscall_intercept
+  - boost
+  - libfabric@1.12.1  fabrics=rxm,sockets,tcp,verbs
+  - mercury@2020-03-17 ~boostsys+debug+ofi
+  - mochi-margo@0.6.3
+  - rocksdb@6.2.2+lz4+rtti+snappy+zlib+zstd
+  - date+shared+tz tzdb=system
+  concretization: together
+  view: true
+  packages:
+    autoconf:
+      externals:
+      - spec: autoconf@2.69
+        prefix: /usr
+    automake:
+      externals:
+      - spec: automake@1.13.4
+        prefix: /usr
+    bash:
+      externals:
+      - spec: bash@4.2.46
+        prefix: /usr
+    bison:
+      externals:
+      - spec: bison@3.0.4
+        prefix: /usr
+    bzip2:
+      externals:
+      - spec: bzip2@1.0.6
+        prefix: /usr
+    cpio:
+      externals:
+      - spec: cpio@2.11
+        prefix: /usr
+    cuda:
+      externals:
+      - spec: cuda@11.2.142
+        prefix: /system/apps/rhel79/cuda/11.2.1
+    diffutils:
+      externals:
+      - spec: diffutils@3.3
+        prefix: /usr
+    doxygen:
+      externals:
+      - spec: doxygen@1.8.5~graphviz~mscgen
+        prefix: /usr
+    findutils:
+      externals:
+      - spec: findutils@4.5.11
+        prefix: /usr
+    flex:
+      externals:
+      - spec: flex@2.5.37+lex
+        prefix: /usr
+    gawk:
+      externals:
+      - spec: gawk@4.0.2
+        prefix: /usr
+    gcc:
+      externals:
+      - spec: gcc@4.8.5 languages=c,c++,fortran
+        prefix: /usr
+        extra_attributes:
+          compilers:
+            c: /usr/bin/gcc
+            cxx: /usr/bin/g++
+            fortran: /usr/bin/gfortran
+      - spec: gcc@8.3.1 languages=c,c++,fortran
+        prefix: /opt/rh/devtoolset-8/root/usr
+        extra_attributes:
+          compilers:
+            c: /opt/rh/devtoolset-8/root/usr/bin/gcc
+            cxx: /opt/rh/devtoolset-8/root/usr/bin/g++
+            fortran: /opt/rh/devtoolset-8/root/usr/bin/gfortran
+    ghostscript:
+      externals:
+      - spec: ghostscript@9.25
+        prefix: /usr
+    git:
+      externals:
+      - spec: git@1.8.3.1~tcltk
+        prefix: /usr
+    gmake:
+      externals:
+      - spec: gmake@3.82
+        prefix: /usr
+      - spec: gmake@4.2.1
+        prefix: /opt/rh/devtoolset-8/root/usr
+    groff:
+      externals:
+      - spec: groff@1.22.2
+        prefix: /usr
+    openjdk:
+      externals:
+      - spec: openjdk@1.8.0_292-b10
+        prefix: /usr
+    krb5:
+      externals:
+      - spec: krb5@1.15.1
+        prefix: /usr
+    libfuse:
+      externals:
+      - spec: libfuse@2.9.2
+        prefix: /usr
+    libtool:
+      externals:
+      - spec: libtool@2.4.2
+        prefix: /usr
+    lustre:
+      externals:
+      - spec: lustre@2.12.6_ddn19
+        prefix: /usr
+    m4:
+      externals:
+      - spec: m4@1.4.16
+        prefix: /usr
+    ncurses:
+      externals:
+      - spec: ncurses@5.9.20130511+termlib abi=5
+        prefix: /usr
+    openmpi:
+      externals:
+      - spec: openmpi@4.0.3%gcc@8.3.1+cuda~cxx~cxx_exceptions~java~memchecker+pmi~sqlite3+static~thread_multiple~wrapper-rpath
+          fabrics=ucx schedulers=slurm
+        prefix: /system/apps/rhel79/openmpi/gdr/4.0.3/gcc8.3.1-cuda11.2.1
+    openssh:
+      externals:
+      - spec: openssh@7.4p1
+        prefix: /usr
+    openssl:
+      externals:
+      - spec: openssl@1.0.2k-fips
+        prefix: /usr
+    perl:
+      externals:
+      - spec: perl@5.16.3~cpanm+shared+threads
+        prefix: /usr
+    pkg-config:
+      externals:
+      - spec: pkg-config@0.27.1
+        prefix: /usr
+    python:
+      externals:
+      - spec: python@2.7.5+bz2+ctypes+dbm+lzma+nis+pyexpat+readline+sqlite3+ssl~tix~tkinter+uuid+zlib
+        prefix: /usr
+      - spec: python@3.6.8+bz2+ctypes+dbm+lzma+nis+pyexpat+readline+sqlite3+ssl~tix~tkinter+uuid+zlib
+        prefix: /usr
+    rsync:
+      externals:
+      - spec: rsync@3.1.2
+        prefix: /usr
+    ruby:
+      externals:
+      - spec: ruby@2.0.0
+        prefix: /usr
+    tar:
+      externals:
+      - spec: tar@1.26
+        prefix: /usr
+    texinfo:
+      externals:
+      - spec: texinfo@5.1
+        prefix: /usr
+    xz:
+      externals:
+      - spec: xz@5.2.2
+        prefix: /usr
+    rdma-core:
+      externals:
+      - spec: rdma-core@51mlnx1-1.51258
+        prefix: /usr
+      buildable: false
+  repos:
+  - ../../spack-repos/gekkofs
+  config:
+    build_stage:
+    - /work/NBB/$user/spack-stage
+  compilers:
+  - compiler:
+      spec: gcc@4.8.5
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@8.3.1
+      paths:
+        cc: /opt/rh/devtoolset-8/root/usr/bin/gcc
+        cxx: /opt/rh/devtoolset-8/root/usr/bin/g++
+        f77: /opt/rh/devtoolset-8/root/usr/bin/gfortran
+        fc: /opt/rh/devtoolset-8/root/usr/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
